@@ -16,6 +16,7 @@ public class Inicio {
 
         Scanner scanner = new Scanner(System.in);
         Calculadora calculadora = new Calculadora();
+        AritSemantic resultado = new AritSemantic();
 
         System.out.println("Ingrese su sentencia prefija");
 
@@ -31,7 +32,7 @@ public class Inicio {
 
         if( parser.getFlag()==true){
             System.out.print("El resultado es: ");
-           System.out.println(calculadora.calcular(sentencia));
+            resultado.analyzer(sentencia);
         }
 
         JFrame frame = new JFrame("Antlr AST");
