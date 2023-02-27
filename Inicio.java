@@ -15,10 +15,9 @@ public class Inicio {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Calculadora calculadora = new Calculadora();
         AritSemantic resultado = new AritSemantic();
 
-        System.out.println("Ingrese su sentencia prefija");
+        System.out.println("Enter your prefix sentence");
 
         String sentencia = scanner.nextLine();
 
@@ -31,7 +30,6 @@ public class Inicio {
         ParseTree tree = parser.prog(); // parse
 
         if( parser.getFlag()==true){
-            System.out.print("El resultado es: ");
             resultado.analyzer(sentencia);
         }
 

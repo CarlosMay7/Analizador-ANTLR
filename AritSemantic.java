@@ -23,8 +23,10 @@ public class AritSemantic {
     }
 
     public String cleaner (String input){
-        input = input.replace("(","");
-        input = input.replace(")","");
+        if (input.contains("(") || input.contains(")")){
+            input = input.replace("(","");
+            input = input.replace(")","");
+        }
         return input;
     }
 
