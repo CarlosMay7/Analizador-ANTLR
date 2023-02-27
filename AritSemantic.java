@@ -16,7 +16,9 @@ public class AritSemantic {
         if (this.flag_semantic){
             System.out.println("Error in the statement entered. Semantically incorrect");
         }else{
-            System.out.println("The result of the sentence is: " + this.result);
+            
+            System.out.println(String.format("The result of the sentence is: %.2f",this.result ));
+            
         }
         
 
