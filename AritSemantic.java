@@ -86,7 +86,6 @@ public class AritSemantic {
                 this.stack.push(String.valueOf(operation));
 
             }
-            System.out.println(this.stack);
             index_operator += 1;
         }
     }

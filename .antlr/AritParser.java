@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class AritParser extends Parser {
-	private boolean flag = true;
+	private boolean flag=false;
 	static { RuntimeMetaData.checkVersion("4.12.0", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -180,7 +180,7 @@ public class AritParser extends Parser {
 		enterRule(_localctx, 2, RULE_expr);
 		int _la;
 		try {
-			setState(24);
+			setState(25);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__0:
@@ -198,10 +198,12 @@ public class AritParser extends Parser {
 					consume();
 				}
 				setState(19);
-				expr();
-				setState(20);
 				match(T__2);
+				setState(20);
+				expr();
 				setState(21);
+				match(T__2);
+				setState(22);
 				term();
 				}
 				break;
@@ -213,7 +215,7 @@ public class AritParser extends Parser {
 			case DEC:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(23);
+				setState(24);
 				term();
 				}
 				break;
@@ -222,7 +224,6 @@ public class AritParser extends Parser {
 			}
 		}
 		catch (RecognitionException re) {
-			this.flag=false;
 			_localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
@@ -260,14 +261,14 @@ public class AritParser extends Parser {
 		enterRule(_localctx, 4, RULE_term);
 		int _la;
 		try {
-			setState(32);
+			setState(34);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__3:
 			case T__4:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(26);
+				setState(27);
 				_la = _input.LA(1);
 				if ( !(_la==T__3 || _la==T__4) ) {
 				_errHandler.recoverInline(this);
@@ -277,11 +278,13 @@ public class AritParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(27);
-				term();
 				setState(28);
 				match(T__2);
 				setState(29);
+				term();
+				setState(30);
+				match(T__2);
+				setState(31);
 				valor();
 				}
 				break;
@@ -291,7 +294,7 @@ public class AritParser extends Parser {
 			case DEC:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(31);
+				setState(33);
 				valor();
 				}
 				break;
@@ -300,6 +303,7 @@ public class AritParser extends Parser {
 			}
 		}
 		catch (RecognitionException re) {
+			this.flag = true;
 			_localctx.exception = re;
 			_errHandler.reportError(this, re);
 			_errHandler.recover(this, re);
@@ -336,21 +340,23 @@ public class AritParser extends Parser {
 		ValorContext _localctx = new ValorContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_valor);
 		try {
-			setState(40);
+			setState(43);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__5:
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(34);
+				setState(36);
 				match(T__5);
 				}
-				setState(35);
-				valor();
-				setState(36);
-				match(T__2);
 				setState(37);
+				match(T__2);
+				setState(38);
+				valor();
+				setState(39);
+				match(T__2);
+				setState(40);
 				factor();
 				}
 				break;
@@ -359,7 +365,7 @@ public class AritParser extends Parser {
 			case DEC:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(39);
+				setState(42);
 				factor();
 				}
 				break;
@@ -403,31 +409,31 @@ public class AritParser extends Parser {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_factor);
 		try {
-			setState(48);
+			setState(51);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__6:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(42);
+				setState(45);
 				match(T__6);
-				setState(43);
+				setState(46);
 				expr();
-				setState(44);
+				setState(47);
 				match(T__7);
 				}
 				break;
 			case DEC:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(46);
+				setState(49);
 				match(DEC);
 				}
 				break;
 			case INT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(47);
+				setState(50);
 				match(INT);
 				}
 				break;
@@ -447,39 +453,40 @@ public class AritParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u000b3\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001\u000b6\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0001"+
 		"\u0000\u0001\u0000\u0001\u0000\u0005\u0000\u000e\b\u0000\n\u0000\f\u0000"+
 		"\u0011\t\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0003\u0001\u0019\b\u0001\u0001\u0002\u0001\u0002\u0001\u0002"+
-		"\u0001\u0002\u0001\u0002\u0001\u0002\u0003\u0002!\b\u0002\u0001\u0003"+
-		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0003\u0003"+
-		")\b\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
-		"\u0001\u0004\u0003\u00041\b\u0004\u0001\u0004\u0000\u0000\u0005\u0000"+
-		"\u0002\u0004\u0006\b\u0000\u0002\u0001\u0000\u0001\u0002\u0001\u0000\u0004"+
-		"\u00053\u0000\u000f\u0001\u0000\u0000\u0000\u0002\u0018\u0001\u0000\u0000"+
-		"\u0000\u0004 \u0001\u0000\u0000\u0000\u0006(\u0001\u0000\u0000\u0000\b"+
-		"0\u0001\u0000\u0000\u0000\n\u000b\u0003\u0002\u0001\u0000\u000b\f\u0005"+
-		"\t\u0000\u0000\f\u000e\u0001\u0000\u0000\u0000\r\n\u0001\u0000\u0000\u0000"+
-		"\u000e\u0011\u0001\u0000\u0000\u0000\u000f\r\u0001\u0000\u0000\u0000\u000f"+
-		"\u0010\u0001\u0000\u0000\u0000\u0010\u0001\u0001\u0000\u0000\u0000\u0011"+
-		"\u000f\u0001\u0000\u0000\u0000\u0012\u0013\u0007\u0000\u0000\u0000\u0013"+
-		"\u0014\u0003\u0002\u0001\u0000\u0014\u0015\u0005\u0003\u0000\u0000\u0015"+
-		"\u0016\u0003\u0004\u0002\u0000\u0016\u0019\u0001\u0000\u0000\u0000\u0017"+
-		"\u0019\u0003\u0004\u0002\u0000\u0018\u0012\u0001\u0000\u0000\u0000\u0018"+
-		"\u0017\u0001\u0000\u0000\u0000\u0019\u0003\u0001\u0000\u0000\u0000\u001a"+
-		"\u001b\u0007\u0001\u0000\u0000\u001b\u001c\u0003\u0004\u0002\u0000\u001c"+
-		"\u001d\u0005\u0003\u0000\u0000\u001d\u001e\u0003\u0006\u0003\u0000\u001e"+
-		"!\u0001\u0000\u0000\u0000\u001f!\u0003\u0006\u0003\u0000 \u001a\u0001"+
-		"\u0000\u0000\u0000 \u001f\u0001\u0000\u0000\u0000!\u0005\u0001\u0000\u0000"+
-		"\u0000\"#\u0005\u0006\u0000\u0000#$\u0003\u0006\u0003\u0000$%\u0005\u0003"+
-		"\u0000\u0000%&\u0003\b\u0004\u0000&)\u0001\u0000\u0000\u0000\')\u0003"+
-		"\b\u0004\u0000(\"\u0001\u0000\u0000\u0000(\'\u0001\u0000\u0000\u0000)"+
-		"\u0007\u0001\u0000\u0000\u0000*+\u0005\u0007\u0000\u0000+,\u0003\u0002"+
-		"\u0001\u0000,-\u0005\b\u0000\u0000-1\u0001\u0000\u0000\u0000.1\u0005\u000b"+
-		"\u0000\u0000/1\u0005\n\u0000\u00000*\u0001\u0000\u0000\u00000.\u0001\u0000"+
-		"\u0000\u00000/\u0001\u0000\u0000\u00001\t\u0001\u0000\u0000\u0000\u0005"+
-		"\u000f\u0018 (0";
+		"\u0001\u0001\u0001\u0001\u0003\u0001\u001a\b\u0001\u0001\u0002\u0001\u0002"+
+		"\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0003\u0002"+
+		"#\b\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
+		"\u0001\u0003\u0001\u0003\u0003\u0003,\b\u0003\u0001\u0004\u0001\u0004"+
+		"\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0003\u00044\b\u0004"+
+		"\u0001\u0004\u0000\u0000\u0005\u0000\u0002\u0004\u0006\b\u0000\u0002\u0001"+
+		"\u0000\u0001\u0002\u0001\u0000\u0004\u00056\u0000\u000f\u0001\u0000\u0000"+
+		"\u0000\u0002\u0019\u0001\u0000\u0000\u0000\u0004\"\u0001\u0000\u0000\u0000"+
+		"\u0006+\u0001\u0000\u0000\u0000\b3\u0001\u0000\u0000\u0000\n\u000b\u0003"+
+		"\u0002\u0001\u0000\u000b\f\u0005\t\u0000\u0000\f\u000e\u0001\u0000\u0000"+
+		"\u0000\r\n\u0001\u0000\u0000\u0000\u000e\u0011\u0001\u0000\u0000\u0000"+
+		"\u000f\r\u0001\u0000\u0000\u0000\u000f\u0010\u0001\u0000\u0000\u0000\u0010"+
+		"\u0001\u0001\u0000\u0000\u0000\u0011\u000f\u0001\u0000\u0000\u0000\u0012"+
+		"\u0013\u0007\u0000\u0000\u0000\u0013\u0014\u0005\u0003\u0000\u0000\u0014"+
+		"\u0015\u0003\u0002\u0001\u0000\u0015\u0016\u0005\u0003\u0000\u0000\u0016"+
+		"\u0017\u0003\u0004\u0002\u0000\u0017\u001a\u0001\u0000\u0000\u0000\u0018"+
+		"\u001a\u0003\u0004\u0002\u0000\u0019\u0012\u0001\u0000\u0000\u0000\u0019"+
+		"\u0018\u0001\u0000\u0000\u0000\u001a\u0003\u0001\u0000\u0000\u0000\u001b"+
+		"\u001c\u0007\u0001\u0000\u0000\u001c\u001d\u0005\u0003\u0000\u0000\u001d"+
+		"\u001e\u0003\u0004\u0002\u0000\u001e\u001f\u0005\u0003\u0000\u0000\u001f"+
+		" \u0003\u0006\u0003\u0000 #\u0001\u0000\u0000\u0000!#\u0003\u0006\u0003"+
+		"\u0000\"\u001b\u0001\u0000\u0000\u0000\"!\u0001\u0000\u0000\u0000#\u0005"+
+		"\u0001\u0000\u0000\u0000$%\u0005\u0006\u0000\u0000%&\u0005\u0003\u0000"+
+		"\u0000&\'\u0003\u0006\u0003\u0000\'(\u0005\u0003\u0000\u0000()\u0003\b"+
+		"\u0004\u0000),\u0001\u0000\u0000\u0000*,\u0003\b\u0004\u0000+$\u0001\u0000"+
+		"\u0000\u0000+*\u0001\u0000\u0000\u0000,\u0007\u0001\u0000\u0000\u0000"+
+		"-.\u0005\u0007\u0000\u0000./\u0003\u0002\u0001\u0000/0\u0005\b\u0000\u0000"+
+		"04\u0001\u0000\u0000\u000014\u0005\u000b\u0000\u000024\u0005\n\u0000\u0000"+
+		"3-\u0001\u0000\u0000\u000031\u0001\u0000\u0000\u000032\u0001\u0000\u0000"+
+		"\u00004\t\u0001\u0000\u0000\u0000\u0005\u000f\u0019\"+3";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

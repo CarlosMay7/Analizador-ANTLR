@@ -1,8 +1,8 @@
 grammar Arit;
 prog:   (expr NEWLINE)* ;
-expr:   ('+'|'-') expr ' ' term | term;
-term:	 ('*'|'/') term ' ' valor | valor;
-valor:  ('^') valor ' ' factor | factor;
+expr:   ('+'|'-') ' ' expr ' ' term | term;
+term:	 ('*'|'/') ' ' term ' ' valor | valor;
+valor:  ('^') ' ' valor ' ' factor | factor;
 factor: '('expr')'| DEC | INT ;
 
 NEWLINE : [\r\n]+ ;

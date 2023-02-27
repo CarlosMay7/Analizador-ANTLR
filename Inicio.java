@@ -29,7 +29,7 @@ public class Inicio {
         AritParser parser = new AritParser(tokens);
         ParseTree tree = parser.prog(); // parse
 
-        if( parser.getFlag()==true){
+        if( parser.getFlag()==false){
             resultado.analyzer(sentencia);
         }
 
