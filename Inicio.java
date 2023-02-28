@@ -1,9 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -15,7 +12,8 @@ public class Inicio {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        AritSemantic resultado = new AritSemantic();
+        Evaluacion resultado = new Evaluacion();
+        Vista vista = new Vista();
 
         System.out.println("Enter your prefix sentence");
 
@@ -27,21 +25,15 @@ public class Inicio {
         AritLexer lexer=new AritLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         AritParser parser = new AritParser(tokens);
-        ParseTree tree = parser.prog(); // parse
+        ParseTree tree = parser.prog();
 
         if( parser.getFlag()==false){
             resultado.analyzer(sentencia);
         }
 
-        JFrame frame = new JFrame("Antlr AST");
-        JPanel panel = new JPanel();
         TreeViewer viewer = new TreeViewer(Arrays.asList(parser.getRuleNames()),tree);
-        viewer.setScale(3); // Scale a little
-        panel.add(viewer);
-        frame.add(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+
+        vista.mostrar(viewer);
         scanner.close();
 
     }
